@@ -1,5 +1,0 @@
-site_name: DMS
-repo_url: https://github.com/dms-org/docs
-pages:
-- Home: index.md
-theme: readthedocs
