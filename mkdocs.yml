@@ -1,0 +1,3 @@
+site_name: DMS
+repo_url: https://github.com/dms-org/docs
+markdown_extensions: [meta, toc, tables, fenced_code]
