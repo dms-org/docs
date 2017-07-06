@@ -287,4 +287,5 @@ User Guide
     docs/getting-started
     docs/your-first-app
     docs/scaffolding
+    docs/repositories
 ```

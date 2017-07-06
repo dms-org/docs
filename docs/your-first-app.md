@@ -247,6 +247,8 @@ class DbTodoItemRepository extends DbRepository implements ITodoItemRepository
     {
         parent::__construct($connection, $orm->getEntityMapper(TodoItem::class));
     }
+    
+    // Custom queries can go here...
 }
 ```
 
