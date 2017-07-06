@@ -1,5 +1,5 @@
-Scalar Fields
-=============
+Scalars
+=======
 
 Native data types (strings, integers, floats, booleans) can be expressed as follows
 
@@ -136,10 +136,6 @@ class PersonModule extends CrudModule
         $module->name('person');
 
         $module->labelObjects()->fromProperty(Person::NAME);
-
-        $module->metadata([
-            'icon' => ''
-        ]);
 
         $module->crudForm(function (CrudFormDefinition $form) {
             $form->section('Details', [

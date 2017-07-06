@@ -6,4 +6,5 @@ Field Types
     :maxdepth: 1
 
     ./scalars
+    ./enums
 ```
