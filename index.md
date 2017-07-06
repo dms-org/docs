@@ -288,4 +288,5 @@ User Guide
     docs/your-first-app
     docs/scaffolding
     docs/repositories
+    docs/fields/index
 ```
