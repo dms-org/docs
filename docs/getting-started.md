@@ -52,6 +52,7 @@ It is recommended to install the DMS via [Composer](https://getcomposer.org/) in
     ```
 
  5. Visit `http://your-app-domain/dms` to view the backend of your new project
+    
     You can login with the default user account. **U:** admin **P:** admin.
     
     ![Login](/resources/images/cms/login-1.jpg)

@@ -285,4 +285,5 @@ User Guide
 
     docs/prologue
     docs/getting-started
+    docs/your-first-app
 ```
