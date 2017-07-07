@@ -61,9 +61,6 @@ use Dms\Core\Model\Object\Entity;
 class Car extends Entity
 {
     const COLOUR = 'colour';
-    const AGE = 'age';
-    const WEIGHT = 'weight';
-    const HAPPY = 'happy';
 
     /**
      * @var Colour
@@ -92,7 +89,6 @@ namespace App\Infrastructure\Persistence;
 use Dms\Core\Persistence\Db\Mapping\Definition\MapperDefinition;
 use Dms\Core\Persistence\Db\Mapping\EntityMapper;
 use App\Domain\Entities\Car;
-
 
 /**
  * The App\Domain\Entities\Car entity mapper.
@@ -155,7 +151,6 @@ class CarModule extends CrudModule
         $module->name('car');
 
         $module->labelObjects()->fromProperty(Car::ID);
-
 
         $module->crudForm(function (CrudFormDefinition $form) {
             $form->section('Details', [

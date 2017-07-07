@@ -6,5 +6,8 @@ Field Types
     :maxdepth: 1
 
     ./scalars
+    ./nullable
     ./enums
+    ./files
+    ./date-time
 ```
