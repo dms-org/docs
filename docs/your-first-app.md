@@ -1,4 +1,4 @@
-Your first app
+Your First App
 ==============
 
 To illustrate how to build apps using the DMS, let's go through building a simple TODO
