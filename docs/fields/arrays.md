@@ -2,7 +2,9 @@ Arrays/Collections
 ==================
 
 It is often useful to represent an array of values. 
+
 For scalar values you can use a native `array`.
+
 For a collection of value objects it is recommended you use `Dms\Core\Model\ValueObjectCollection`.
 
 ### Entity Structure
