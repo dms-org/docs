@@ -6,7 +6,7 @@ Files and images can be modelled using value objects.
  - `Dms\Common\Structure\FileSystem\File`
  - `Dms\Common\Structure\FileSystem\Image`
 
-These classes wrap an absolute file path which can references a file stored on disk or externally.
+These classes wrap an absolute file path which can reference a file stored on disk or externally.
 
 ### Entity Structure
 

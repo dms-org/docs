@@ -3,10 +3,10 @@ Date and time
 
 Date and time fields can be modelled using value objects.
 
- - `Dms\Common\Structure\DateTime\Date` - A date value *eg 2000-10-12*
- - `Dms\Common\Structure\DateTime\TimeOfDay` - A time value *eg 06:12:56*
- - `Dms\Common\Structure\DateTime\DateTime` - A date and time value *eg 2000-10-12 06:12:56*
- - `Dms\Common\Structure\DateTime\TimezonedDateTime` - A date and time in a particular timezone value *eg 2000-10-12 06:12:56 Australia/Melbourne*
+ - `Dms\Common\Structure\DateTime\Date` - A date value `eg 2000-10-12`
+ - `Dms\Common\Structure\DateTime\TimeOfDay` - A time value `eg 06:12:56`
+ - `Dms\Common\Structure\DateTime\DateTime` - A date and time value `eg 2000-10-12 06:12:56`
+ - `Dms\Common\Structure\DateTime\TimezonedDateTime` - A date and time in a particular timezone value `eg 2000-10-12 06:12:56 Australia/Melbourne`
 
 These classes wrap a native `DateTime` instance and provide more descriptive API
 for each type of date/time class.
