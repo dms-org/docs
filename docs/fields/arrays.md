@@ -7,6 +7,8 @@ For scalar values you can use a native `array`.
 
 For a collection of value objects it is recommended you use `Dms\Core\Model\ValueObjectCollection`.
 
+For a collection of entities [see relations](./relations/index.md).
+
 ### Entity Structure
 
 ```php

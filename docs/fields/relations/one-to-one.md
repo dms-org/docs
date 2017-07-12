@@ -1,4 +1,4 @@
-One to one
+One to One
 ==========
 
 A one to one bi-directional relationship between entities can be defined as follows.

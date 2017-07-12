@@ -1,7 +1,7 @@
 Colours
 =======
 
-Colurs can be modelled using value objects:
+Colours can be modelled using value objects:
 
  - `Dms\Common\Structure\Colour\Colour` - A RGB colour value `rgb(123, 123, 123)`
  - `Dms\Common\Structure\Colour\TransparentColour` - A RGBA colour value `rgba(123, 123, 123, 0.5)`
