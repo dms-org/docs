@@ -281,7 +281,7 @@ User Guide
 
 ```eval_rst
 .. toctree::
-    :maxdepth: 3
+    :maxdepth: 2
 
     docs/prologue
     docs/getting-started

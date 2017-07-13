@@ -5,5 +5,4 @@ Advanced ORM Topics
 .. toctree::
     :maxdepth: 1
 
-    ./extending-mappers
 ```
