@@ -161,6 +161,116 @@ class Bowler extends Cricketer
 }
 ```
 
+## Mapper Configuration (Single Table Inheritance)
+
+You can map all the subclasses to one database table using single table inheritance pattern with a type column.
+
+```php
+<?php declare(strict_types=1);
+
+namespace App\Infrastructure\Persistence;
+
+use App\Domain\Entities\Bowler;
+use App\Domain\Entities\Cricketer;
+use App\Domain\Entities\Footballer;
+use App\Domain\Entities\Player;
+use Dms\Core\Persistence\Db\Mapping\Definition\MapperDefinition;
+use Dms\Core\Persistence\Db\Mapping\EntityMapper;
+
+/**
+ * @author Elliot Levin <elliotlevin@hotmail.com>
+ */
+class PlayerMapper extends EntityMapper
+{
+    /**
+     * Defines the entity mapper
+     *
+     * @param MapperDefinition $map
+     *
+     * @return void
+     */
+    protected function define(MapperDefinition $map)
+    {
+        $map->type(Player::class);
+        $map->toTable('players');
+
+        $map->idToPrimaryKey('id');
+
+        $map->column('type')->asEnum(['footballer', 'cricketer', 'bowler']);
+        $map->property(Player::NAME)->to('name')->asVarchar(255);
+
+        $map->subclass()->withTypeInColumn('type', 'footballer')->define(function (MapperDefinition $map) {
+            $map->type(Footballer::class);
+            $map->property(Footballer::CLUB)->to('club')->asVarchar(255);
+        });
+
+        $map->subclass()->withTypeInColumn('type', 'cricketer')->define(function (MapperDefinition $map) {
+            $map->type(Cricketer::class);
+            $map->property(Cricketer::BATTING_AVERAGE)->to('batting_average')->asInt();
+
+            $map->subclass()->withTypeInColumn('type', 'bowler')->define(function (MapperDefinition $map) {
+                $map->type(Bowler::class);
+                $map->property(Bowler::BOWLING_AVERAGE)->to('bowling_average')->asInt();
+            });
+        });
+    }
+}
+```
+
+## Mapper Configuration (Class Table Inheritance)
+
+Alternatively, you can map each the subclasses to a separate table.
+
+```php
+<?php declare(strict_types=1);
+
+namespace App\Infrastructure\Persistence;
+
+use App\Domain\Entities\Bowler;
+use App\Domain\Entities\Cricketer;
+use App\Domain\Entities\Footballer;
+use App\Domain\Entities\Player;
+use Dms\Core\Persistence\Db\Mapping\Definition\MapperDefinition;
+use Dms\Core\Persistence\Db\Mapping\EntityMapper;
+
+/**
+ * @author Elliot Levin <elliotlevin@hotmail.com>
+ */
+class PlayerMapper extends EntityMapper
+{
+    /**
+     * Defines the entity mapper
+     *
+     * @param MapperDefinition $map
+     *
+     * @return void
+     */
+    protected function define(MapperDefinition $map)
+    {
+        $map->type(Player::class);
+        $map->toTable('players');
+
+        $map->idToPrimaryKey('id');
+        $map->property(Player::NAME)->to('name')->asVarchar(255);
+
+        $map->subclass()->asSeparateTable('footballers')->define(function (MapperDefinition $map) {
+            $map->type(Footballer::class);
+            $map->property(Footballer::CLUB)->to('club')->asVarchar(255);
+        });
+
+        $map->subclass()->asSeparateTable('cricketers')->define(function (MapperDefinition $map) {
+            $map->type(Cricketer::class);
+            $map->property(Cricketer::BATTING_AVERAGE)->to('batting_average')->asInt();
+
+            $map->subclass()->asSeparateTable('bowlers')->define(function (MapperDefinition $map) {
+                $map->type(Bowler::class);
+                $map->property(Bowler::BOWLING_AVERAGE)->to('bowling_average')->asInt();
+            });
+        });
+    }
+}
+```
+
 ### Module Configuration
 
 Modules support mapping to entity subclasses as shown in the following example
@@ -270,116 +380,6 @@ class PlayerModule extends CrudModule
             $table->view('all', 'All')
                 ->loadAll()
                 ->asDefault();
-        });
-    }
-}
-```
-
-## Mapper Configuration (Single Table Inheritance)
-
-You can map all the subclasses to one database table using single table inheritance pattern with a type column.
-
-```php
-<?php declare(strict_types=1);
-
-namespace App\Infrastructure\Persistence;
-
-use App\Domain\Entities\Bowler;
-use App\Domain\Entities\Cricketer;
-use App\Domain\Entities\Footballer;
-use App\Domain\Entities\Player;
-use Dms\Core\Persistence\Db\Mapping\Definition\MapperDefinition;
-use Dms\Core\Persistence\Db\Mapping\EntityMapper;
-
-/**
- * @author Elliot Levin <elliotlevin@hotmail.com>
- */
-class PlayerMapper extends EntityMapper
-{
-    /**
-     * Defines the entity mapper
-     *
-     * @param MapperDefinition $map
-     *
-     * @return void
-     */
-    protected function define(MapperDefinition $map)
-    {
-        $map->type(Player::class);
-        $map->toTable('players');
-
-        $map->idToPrimaryKey('id');
-
-        $map->column('type')->asEnum(['footballer', 'cricketer', 'bowler']);
-        $map->property(Player::NAME)->to('name')->asVarchar(255);
-
-        $map->subclass()->withTypeInColumn('type', 'footballer')->define(function (MapperDefinition $map) {
-            $map->type(Footballer::class);
-            $map->property(Footballer::CLUB)->to('club')->asVarchar(255);
-        });
-
-        $map->subclass()->withTypeInColumn('type', 'cricketer')->define(function (MapperDefinition $map) {
-            $map->type(Cricketer::class);
-            $map->property(Cricketer::BATTING_AVERAGE)->to('batting_average')->asInt();
-
-            $map->subclass()->withTypeInColumn('type', 'bowler')->define(function (MapperDefinition $map) {
-                $map->type(Bowler::class);
-                $map->property(Bowler::BOWLING_AVERAGE)->to('bowling_average')->asInt();
-            });
-        });
-    }
-}
-```
-
-## Mapper Configuration (Class Table Inheritance)
-
-Alternatively, you can map each the subclasses to a separate table.
-
-```php
-<?php declare(strict_types=1);
-
-namespace App\Infrastructure\Persistence;
-
-use App\Domain\Entities\Bowler;
-use App\Domain\Entities\Cricketer;
-use App\Domain\Entities\Footballer;
-use App\Domain\Entities\Player;
-use Dms\Core\Persistence\Db\Mapping\Definition\MapperDefinition;
-use Dms\Core\Persistence\Db\Mapping\EntityMapper;
-
-/**
- * @author Elliot Levin <elliotlevin@hotmail.com>
- */
-class PlayerMapper extends EntityMapper
-{
-    /**
-     * Defines the entity mapper
-     *
-     * @param MapperDefinition $map
-     *
-     * @return void
-     */
-    protected function define(MapperDefinition $map)
-    {
-        $map->type(Player::class);
-        $map->toTable('players');
-
-        $map->idToPrimaryKey('id');
-        $map->property(Player::NAME)->to('name')->asVarchar(255);
-
-        $map->subclass()->asSeparateTable('footballers')->define(function (MapperDefinition $map) {
-            $map->type(Footballer::class);
-            $map->property(Footballer::CLUB)->to('club')->asVarchar(255);
-        });
-
-        $map->subclass()->asSeparateTable('cricketers')->define(function (MapperDefinition $map) {
-            $map->type(Cricketer::class);
-            $map->property('battingAverage')->to('batting_average')->asInt();
-
-            $map->subclass()->asSeparateTable('bowlers')->define(function (MapperDefinition $map) {
-                $map->type(Bowler::class);
-                $map->property(Bowler::BOWLING_AVERAGE)->to('bowling_average')->asInt();
-            });
         });
     }
 }
