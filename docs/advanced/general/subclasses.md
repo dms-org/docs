@@ -205,7 +205,7 @@ class PlayerModule extends CrudModule
             ]);
 
             if (!$form->isCreateForm()) {
-                // Cannot change the type of the entity
+                // If the entity is already exist the type of the entity cannot be changed
                 $typeField->readonly();
             }
 
