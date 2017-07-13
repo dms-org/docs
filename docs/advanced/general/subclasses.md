@@ -2,7 +2,7 @@ Subclasses
 ==========
 
 A powerful of feature of OOP to help remove duplication is subclassing.
-Subclassing allowing you to create inheritance trees to better model your domain.
+Subclassing allows you to create inheritance trees to better model your domain.
 
 ### Entity Structure
 
