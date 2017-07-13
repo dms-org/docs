@@ -1,7 +1,7 @@
 One to Many
 ===========
 
-A one to many bi-directional relationship between entities can be defined as follows.
+An one to many bi-directional relationship between entities can be defined as follows.
 
 ### Entity Structure
 

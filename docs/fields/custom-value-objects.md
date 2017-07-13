@@ -4,7 +4,6 @@ Custom Value Objects
 You may find yourself repeating a bunch of fields throughout your application, in this case you can
 extract these fields into your own custom value objects which can then be reused throughout your app.
 
-
 ### Entity Structure
 
 #### app/Domain/Entities/Engine.php
