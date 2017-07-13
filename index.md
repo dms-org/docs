@@ -289,4 +289,5 @@ User Guide
     docs/scaffolding
     docs/repositories
     docs/fields/index
+    docs/advanced/index
 ```
