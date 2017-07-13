@@ -1,7 +1,7 @@
 Money
 =====
 
-Monetary values can be modelled using a value objects:
+Monetary values can be modelled using a value object:
  
  - `Dms\Common\Structure\Money\Money` - Represents an amount of currency `$123.45 AUD`
  
