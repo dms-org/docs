@@ -119,9 +119,7 @@ class JobModule extends CrudModule
             ->form(Form::create()->section('Details', [
                 Field::create('comments', 'Comments')->string()
             ]))
-            ->returns(File::class)
             ->handler(function (Job $job, array $input) {
-                // Generate your export file...
                 $this->jobCompletionService->completeJob($job, $input['comments']);
             });
 
