@@ -1,13 +1,14 @@
 DMS Developer Documentation
 ===========================
 
-DMS is PHP7 application framework that makes it quick and easy to build maintainable and robust apps of any scale.
+DMS is PHP7 application framework that helps to develop maintainable and robust apps of any scale.
 
  - Integrates with Laravel
  - Promotes separation of concerns and defines clear architectural boundaries
  - Build strongly typed, rich or anemic domain models to suit your application
  - Fully-featured data mapper ORM
  - Provides an integrated and powerful CMS/Backend framework
+ - Extensive scaffolding to speed up application development
  - Reusuable functionality can be installed via composer packages 
 
 Dashboard
@@ -290,4 +291,5 @@ User Guide
     docs/repositories
     docs/fields/index
     docs/advanced/index
+    docs/packages/index
 ```
