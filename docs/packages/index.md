@@ -9,5 +9,6 @@ Packages
     Blog <./blog>
     Content <./content>
     FAQ's <./faqs>
+    Contact Us <./contact-us>
     Building Your Own Package <./building-your-own>
 ```

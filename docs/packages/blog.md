@@ -5,11 +5,79 @@ The blog package provides the functionality for building a simple blogging platf
 
 ## Installation
 
-Install the package via composer:
+### Install the package via composer
 
 `composer require dms/package.blog`
 
-Configure the blog package in `app/Providers/AppServiceProvider.php`
+### Register the package in `app/AppCms.php`
+
+```php
+<?php declare(strict_types = 1);
+
+namespace App;
+
+use Dms\Core\Cms;
+use Dms\Core\CmsDefinition;
+use Dms\Package\Blog\Cms\BlogPackage;
+
+/**
+ * The application's cms.
+ *
+ * @author Elliot Levin <elliotlevin@hotmail.com>
+ */
+class AppCms extends Cms
+{
+    /**
+     * Defines the structure and installed packages of the cms.
+     *
+     * @param CmsDefinition $cms
+     *
+     * @return void
+     */
+    protected function define(CmsDefinition $cms)
+    {
+        $cms->packages([
+            // Add this line to register the blog package...
+            'blog' => BlogPackage::class,
+        ]);
+    }
+}
+```
+
+### Register the ORM in `app/AppORM.php`
+
+```php
+<?php declare(strict_types = 1);
+
+namespace App;
+
+use Dms\Core\Persistence\Db\Mapping\Definition\Orm\OrmDefinition;
+use Dms\Core\Persistence\Db\Mapping\Orm;
+use Dms\Package\Blog\Infrastructure\Persistence\BlogOrm;
+
+/**
+ * The application's orm.
+ *
+ * @author Elliot Levin <elliotlevin@hotmail.com>
+ */
+class AppOrm extends Orm
+{
+    /**
+     * Defines the object mappers registered in the orm.
+     *
+     * @param OrmDefinition $orm
+     *
+     * @return void
+     */
+    protected function define(OrmDefinition $orm)
+    {
+        // Add this line to register the blog mappers
+        $orm->encompass((new BlogOrm($this->iocContainer))->inNamespace('blog_'));
+    }
+}
+```
+
+### Configure the blog package in `app/Providers/AppServiceProvider.php`
 
 ```php
 <?php
