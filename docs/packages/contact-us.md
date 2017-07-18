@@ -8,7 +8,7 @@ The contact us packages allows these enquires to be stored in the backend.
 
 ### Install the package via composer
 
-`composer require dms/package.contact-us`
+`composer require dms-org/package.contact-us`
 
 ### Register the package in `app/AppCms.php`
 

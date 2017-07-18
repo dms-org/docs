@@ -8,7 +8,7 @@ The content package provides a generic structure that you can use to define the 
 
 ### Install the package via composer
 
-`composer require dms/package.content`
+`composer require dms-org/package.content`
 
 ### Register the ORM in `app/AppORM.php`
 

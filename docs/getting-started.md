@@ -33,7 +33,7 @@ It is recommended to install the DMS via [Composer](https://getcomposer.org/) in
  2. Install the latest version of DMS via Composer
  
     ```
-    composer require dms/web.laravel
+    composer require dms-org/web.laravel
     ```
     
  3. Add the service provider your `config/app.php`

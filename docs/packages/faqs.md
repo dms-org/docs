@@ -8,7 +8,7 @@ The FAQ package provides the functionality for this.
 
 ### Install the package via composer
 
-`composer require dms/package.faqs`
+`composer require dms-org/package.faqs`
 
 ### Register the package in `app/AppCms.php`
 

@@ -7,7 +7,7 @@ The blog package provides the functionality for building a simple blogging platf
 
 ### Install the package via composer
 
-`composer require dms/package.blog`
+`composer require dms-org/package.blog`
 
 ### Register the package in `app/AppCms.php`
 
