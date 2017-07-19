@@ -25,11 +25,11 @@ Building on concepts of DDD, this documentation uses similar language and jargon
 Architecture
 ------------
 
-Complex applications must define their business logic somewhere in the application.
-Every developer has their own opinions on how to structure an application, the DMS
-takes an opinionated approach where the application is separated into layers.
-The functionality of an application should be contained within service classes which are
-able to be reused by each application entry point, whether it be the web UI, CLI or CMS.
+All applications must define their business logic somewhere in the application.
+Every developer has their own opinion on how to structure an application, the DMS
+takes an approach where the application is separated into layers.
+The functionality of an application should be contained within service classes which expose
+an API to be used by each application entry point, whether it be the web UI, CLI or CMS.
 
 ![Architecture Diagram](/resources/images/architecture/overview-1.jpg)
 
