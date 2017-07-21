@@ -10,7 +10,7 @@ The content package provides a generic structure that you can use to define the 
 
 `composer require dms-org/package.content`
 
-### Register the ORM in `app/AppORM.php`
+### Register the ORM in `app/AppOrm.php`
 
 ```php
 <?php declare(strict_types = 1);

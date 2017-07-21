@@ -45,7 +45,7 @@ class AppCms extends Cms
 }
 ```
 
-### Register the ORM in `app/AppORM.php`
+### Register the ORM in `app/AppOrm.php`
 
 ```php
 <?php declare(strict_types = 1);
