@@ -54,7 +54,7 @@ namespace App;
 
 use Dms\Core\Persistence\Db\Mapping\Definition\Orm\OrmDefinition;
 use Dms\Core\Persistence\Db\Mapping\Orm;
-use Dms\Package\Blog\Infrastructure\Persistence\BlogOrm;
+use Dms\Package\Faq\Persistence\FaqOrm;
 
 /**
  * The application's orm.
