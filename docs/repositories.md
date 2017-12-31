@@ -57,7 +57,7 @@ function deleteItems(ITodoItemRepository $repo)
     // Delete the entity
     $repo->remove($someEntity);
     
-    // Delete the entity with the ids 1, 2 or 3
+    // Delete the entity of id 1
     $repo->removeById(1);
     
     // Delete the entity
